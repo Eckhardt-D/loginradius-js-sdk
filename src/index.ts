@@ -10,11 +10,11 @@ export const getCustomDomain = (auth: Auth): string | undefined =>
   auth.customDomain;
 
 export const initializeAuth = (config: AuthConfig): Auth => {
-  if (!config.apiKey) {
+  if (!config || !config.apiKey) {
     throw new LibError('API_Key', 'Please Set The LoginRadius ApiKey');
   }
 
-  if (!config.appName) {
+  if (!config || !config.appName) {
     throw new LibError('APP_Name', 'Please Set The LoginRadius APP Name');
   }
 
@@ -209,7 +209,7 @@ export const appCallback = async (auth: Auth): Promise<void> => {
 export const authValidateAccessToken = async (
   auth: Auth,
   accessToken: string
-): Promise<boolean> => {
+) => {
   if (_utilisNull(accessToken)) {
     _util_message(auth, 'accessToken');
     return false;
