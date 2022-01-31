@@ -150,7 +150,7 @@ export const initializeAuth = (config: AuthConfig): Auth => {
 };
 
 export const isLoggedIn = async (auth: Auth): Promise<boolean> => {
-  const storedToken = await getTokenFromStorage(auth, auth.token);
+  const storedToken = getTokenFromStorage(auth, auth.token);
 
   if (storedToken) {
     try {
