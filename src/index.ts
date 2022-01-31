@@ -87,10 +87,8 @@ export const initializeAuth = (config: AuthConfig): Auth => {
         if (end) {
           switch (end.constructor) {
             case Number:
-              expires = `;expires=${expiryDate.getInStringFormat(
-                end as number
-              )}`;
-              '; expires=' +
+              expires =
+                '; expires=' +
                 expiryDate.getInStringFormat(end as number) +
                 (end === Infinity ? '' : '; max-age=' + end);
               break;

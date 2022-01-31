@@ -27,17 +27,17 @@ export type Auth = {
   };
 
   documentCookies: {
-    getItem: (sKey: string) => string | null;
+    getItem: (key: string) => string | null;
     setItem: (
-      sKey: string,
-      sValue: string,
-      vEnd: string | number | Date,
-      sPath: string,
-      sDomain: string,
-      bSecure: string
+      key: string,
+      value: string,
+      end: string | number | Date,
+      path: string,
+      domain: string,
+      secure: string
     ) => boolean;
-    removeItem: (sKey: string, sPath: string, sDomain: string) => boolean;
-    hasItem: (sKey: string) => boolean;
+    removeItem: (key: string, path: string, domain: string) => boolean;
+    hasItem: (key: string) => boolean;
     keys: () => string[];
   };
 };
