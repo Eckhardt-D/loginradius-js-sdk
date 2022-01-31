@@ -149,6 +149,15 @@ export const initializeAuth = (config: AuthConfig): Auth => {
   };
 };
 
+export const getToken = (auth: Auth) => {
+  try {
+    const accessTokenValue = getTokenFromStorage(auth, auth.token);
+    return accessTokenValue;
+  } catch (err) {
+    return auth.errorMsgs[906];
+  }
+};
+
 export const isLoggedIn = async (auth: Auth): Promise<boolean> => {
   const storedToken = getTokenFromStorage(auth, auth.token);
 
